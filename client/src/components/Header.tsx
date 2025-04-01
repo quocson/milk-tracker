@@ -64,10 +64,10 @@ const Header: React.FC = () => {
                             </li>
                             <li>
                                 <Link 
-                                    to="/dashboard" 
+                                    to="/report" 
                                     className="text-gray-600 hover:text-primary transition-colors flex items-center"
                                 >
-                                    <span className="mr-1">📊</span> Dashboard
+                                    <span className="mr-1">📊</span> Report
                                 </Link>
                             </li>
                             <li>
@@ -97,11 +97,11 @@ const Header: React.FC = () => {
                             </li>
                             <li>
                                 <Link 
-                                    to="/dashboard" 
+                                    to="/report" 
                                     className="text-gray-600 hover:text-primary transition-colors flex items-center"
                                     onClick={() => setMenuOpen(false)}
                                 >
-                                    <span className="mr-2">📊</span> Dashboard
+                                    <span className="mr-2">📊</span> Report
                                 </Link>
                             </li>
                             <li>
