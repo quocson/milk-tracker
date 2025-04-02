@@ -3,7 +3,7 @@ name: Deploy Vite from client folder to GitHub Pages
 on:
   push:
     branches:
-      - main
+      - gh-pages-src
 
 jobs:
   deploy:
