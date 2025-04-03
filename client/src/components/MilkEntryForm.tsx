@@ -5,20 +5,26 @@ interface MilkEntryFormProps {
   onEntryCreated: (entry: any) => void;
 }
 
-const MilkEntryForm: React.FC<MilkEntryFormProps> = ({onEntryCreated}) => {
-    const [datetime, setDatetime] = useState<string>(new Date().toISOString().slice(0, 16));
+const MilkEntryForm: React.FC<MilkEntryFormProps> = ({ onEntryCreated }) => {
+    const getLocalISOString = () => {
+        const now = new Date();
+        const offset = now.getTimezoneOffset() * 60000; // Offset in milliseconds
+        return new Date(now.getTime() - offset).toISOString().slice(0, 16);
+    };
+
+    const [datetime, setDatetime] = useState<string>(getLocalISOString());
     const [volumeML, setVolumeML] = useState<number>(0);
     const [milkType, setMilkType] = useState<'breast' | 'formula'>('breast');
     const [submitting, setSubmitting] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
-    
+
     const { addMilkEntry, isOnline } = useAppContext();
-    
+
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setSubmitting(true);
         setError(null);
-        
+
         try {
             const newEntry = {
                 datetime: new Date(datetime).toISOString(),
@@ -27,7 +33,7 @@ const MilkEntryForm: React.FC<MilkEntryFormProps> = ({onEntryCreated}) => {
                 createdAt: new Date().toISOString(),
                 updatedAt: new Date().toISOString(),
             };
-            
+
             await addMilkEntry(newEntry);
             onEntryCreated(newEntry);
             resetForm();
@@ -40,7 +46,7 @@ const MilkEntryForm: React.FC<MilkEntryFormProps> = ({onEntryCreated}) => {
     };
 
     const resetForm = () => {
-        setDatetime(new Date().toISOString().slice(0, 16));
+        setDatetime(getLocalISOString());
         setVolumeML(0);
         setMilkType('breast');
     };
