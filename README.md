@@ -2,6 +2,8 @@
 
 Milk Tracker is a full-stack application designed to help parents track baby feeding data. It consists of a React-based Progressive Web App (PWA) for the client-side and a Go-based backend server. The application supports offline functionality, user management, and feeding data visualization.
 
+The client application, which supports offline mode, is hosted at: [https://quocson.github.io/milk-tracker/](https://quocson.github.io/milk-tracker/)
+
 ---
 
 ## Features
