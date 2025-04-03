@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, HashRouter } from 'react-router-dom';
 import Header from './components/Header';
 import Layout from './components/Layout';
 import Home from './pages/Home';
@@ -9,7 +9,7 @@ import Settings from './pages/Settings';
 
 const App = () => {
     return (
-        <Router basename="/milk-tracker/">
+        <HashRouter basename="/milk-tracker/">
             <Header />
             <Layout>
                 <Routes>
@@ -19,7 +19,7 @@ const App = () => {
                     <Route path="/settings" element={<Settings />} />
                 </Routes>
             </Layout>
-        </Router>
+        </HashRouter>
     );
 };
 
