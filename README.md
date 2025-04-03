@@ -78,7 +78,7 @@ server/
 3. Navigate to the server directory and set up the backend:
 
    ```bash
-   cd ../server
+   cd server
    go mod tidy
    ```
 
