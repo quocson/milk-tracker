@@ -9,7 +9,7 @@ import Settings from './pages/Settings';
 
 const App = () => {
     return (
-        <HashRouter basename="/milk-tracker/">
+        <HashRouter>
             <Header />
             <Layout>
                 <Routes>
